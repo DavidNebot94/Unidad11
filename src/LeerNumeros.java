@@ -5,38 +5,24 @@ import java.util.Scanner;
 public class LeerNumeros {
 
     public static void main(String[] args) {
-        int numeroEntero, sumaInt = 0;
-        double numeroDouble, sumaDouble = 0;
+        int numeroEntero;
+        int par;
+        int inpar;
 
         File f = new File("C:/Users/David/IdeaProjects/Unidad11/src");
 
         try  (Scanner entrada = new Scanner(f)) {
-
-            //Primero están todos los int seguidos
-            System.out.println("Números de tipo int: ");
-
-            while (entrada.hasNextInt()) { //mientras queden enteros por leer
-                numeroEntero = entrada.nextInt(); //se lee un entero del archivo
-                System.out.print(numeroEntero + " "); //se muestra por pantalla
-                sumaInt = sumaInt + numeroEntero;  //se suma
+            numeroEntero = entrada.nextInt();
+            if ( numeroEntero % 2 == 0 )
+            {
+                numeroEntero = int par;
+                System.out.printf( "ES PAR" );
             }
-
-            //cuando acaba la lectura de enteros se muestra su suma
-            System.out.println("\nSuma de los int: " + sumaInt);
-
-            //Cuando terminan los int empiezan los double
-            System.out.println("Números de tipo double: ");
-
-            while (entrada.hasNextDouble()) { //mientras queden double por leer
-                numeroDouble = entrada.nextDouble(); //se lee un double del archivo
-                System.out.print(numeroDouble + " ");  //se muestra por pantalla
-                sumaDouble = sumaDouble + numeroDouble; //se suma
-
+            else
+            {
+                numeroEntero = int inpar;
+                System.out.printf( "ES IMPAR" );
             }
-
-            //cuando acaba la lectura de double se muestra su suma
-            System.out.println("\nSuma de los doubles: " + sumaDouble);
-
         } catch (FileNotFoundException e) {
             System.out.println(e.toString());
         } catch (Exception e) {
